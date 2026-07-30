@@ -5,12 +5,17 @@ import { profile } from "../../content";
 
 // Roberts family of sites — cross-linked for discovery & SEO.
 const FAMILY_SITES = [
-  { label: "Built Before the Cloud", href: "https://builtbeforecloud.com" },
-  { label: "Loralee Roberts", href: "https://loraleeroberts.com" },
+  { label: "Lora Lee Roberts", href: "https://loraleeroberts.com" },
   { label: "Monty Roberts", href: "https://montyroberts.life" },
   { label: "Lora Watercolor", href: "https://lorawatercolor.com" },
-  { label: "Single Pane of Glass", href: "https://singlepaneofglass.blog" },
+  { label: "Peter Munro Roberts", href: "https://petermunroroberts.com" },
+  { label: "Built Before the Cloud", href: "https://builtbeforecloud.com" },
+];
+
+const FAMILY_BLOGS = [
   { label: "Operational Visibility", href: "https://operationalvisibility.blog" },
+  { label: "Single Pane of Glass", href: "https://singlepaneofglass.blog" },
+  { label: "Platformz Technology", href: "https://platformz.technology" },
 ];
 
 export default function Footer() {
@@ -77,13 +82,21 @@ export default function Footer() {
           <a href="https://loraleeroberts.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-aurora">Lora Lee Roberts Archive</a>
         </div>
 
-        {/* Family of sites */}
+        {/* Family sites & blogs */}
         <div className="w-full max-w-2xl border-t border-white/10 pt-5">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted">Family of sites</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted">Family sites</p>
           <div className="mt-3 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-muted">
             {FAMILY_SITES.map((s) => (
               <a key={s.href} href={s.href} target="_blank" rel="noreferrer" className="transition-colors hover:text-cyan">
-                {s.label}
+                {s.label} ↗
+              </a>
+            ))}
+          </div>
+          <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.3em] text-muted">Family / company blogs</p>
+          <div className="mt-3 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-muted">
+            {FAMILY_BLOGS.map((s) => (
+              <a key={s.href} href={s.href} target="_blank" rel="noreferrer" className="transition-colors hover:text-cyan">
+                {s.label} ↗
               </a>
             ))}
           </div>
