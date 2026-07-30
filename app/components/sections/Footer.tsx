@@ -3,6 +3,16 @@
 import { useState } from "react";
 import { profile } from "../../content";
 
+// Roberts family of sites — cross-linked for discovery & SEO.
+const FAMILY_SITES = [
+  { label: "Built Before the Cloud", href: "https://builtbeforecloud.com" },
+  { label: "Loralee Roberts", href: "https://loraleeroberts.com" },
+  { label: "Monty Roberts", href: "https://montyroberts.life" },
+  { label: "Lora Watercolor", href: "https://lorawatercolor.com" },
+  { label: "Single Pane of Glass", href: "https://singlepaneofglass.blog" },
+  { label: "Operational Visibility", href: "https://operationalvisibility.blog" },
+];
+
 export default function Footer() {
   const [launching, setLaunching] = useState(false);
 
@@ -65,6 +75,18 @@ export default function Footer() {
           <a href={`mailto:${profile.email}`} className="transition-colors hover:text-cyan">Email</a>
           <a href="https://montyroberts.life" target="_blank" rel="noreferrer" className="transition-colors hover:text-aurora">Monty Roberts Archive</a>
           <a href="https://loraleeroberts.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-aurora">Lora Lee Roberts Archive</a>
+        </div>
+
+        {/* Family of sites */}
+        <div className="w-full max-w-2xl border-t border-white/10 pt-5">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted">Family of sites</p>
+          <div className="mt-3 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-muted">
+            {FAMILY_SITES.map((s) => (
+              <a key={s.href} href={s.href} target="_blank" rel="noreferrer" className="transition-colors hover:text-cyan">
+                {s.label}
+              </a>
+            ))}
+          </div>
         </div>
 
         <p className="text-xs text-muted">
