@@ -41,6 +41,16 @@ export default function Heritage() {
                 </div>
                 <p className="mt-4 text-sm font-medium text-aurora">{m.title}</p>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{m.note}</p>
+                {"href" in m && m.href ? (
+                  <a
+                    href={m.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-3 inline-block text-sm font-medium text-cyan transition-colors hover:text-aurora"
+                  >
+                    {m.linkLabel} ↗
+                  </a>
+                ) : null}
               </article>
             </TiltCard>
           </Reveal>

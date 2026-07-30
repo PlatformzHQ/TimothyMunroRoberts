@@ -63,6 +63,8 @@ export default function Footer() {
             <a href={profile.linkedin} target="_blank" rel="noreferrer" className="transition-colors hover:text-cyan">LinkedIn</a>
           )}
           <a href={`mailto:${profile.email}`} className="transition-colors hover:text-cyan">Email</a>
+          <a href="https://montyroberts.life" target="_blank" rel="noreferrer" className="transition-colors hover:text-aurora">Monty Roberts Archive</a>
+          <a href="https://loraleeroberts.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-aurora">Lora Lee Roberts Archive</a>
         </div>
 
         <p className="text-xs text-muted">

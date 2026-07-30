@@ -1119,6 +1119,8 @@ export const heritage = {
       title: "Marketing innovator — Ford · Anheuser-Busch · Y&R",
       note:
         "A Ford Foundation Scholar at Yale and Washington University graduate. As Ford's Director of Marketing he helped create the Shelby and Mercury divisions and ran Ford Racing; designed Busch Gardens attractions (Tampa's 'Dark Continent' and the Loch Ness Monster coaster); helped launch Busch beer; and originated NASCAR's Busch Series, the Busch Clash, and the 17-year 'Head for the Mountains' campaign. He later led the Walt Disney account at Y&R before becoming an ordained Episcopalian minister.",
+      href: "https://montyroberts.life",
+      linkLabel: "Explore the full archive at montyroberts.life",
     },
     {
       icon: "💡",
@@ -1127,6 +1129,8 @@ export const heritage = {
       title: "Serial entrepreneur",
       note:
         "An acclaimed businesswoman who has started and owned a business brokerage, franchise auto-brake stores, and a chemical-distribution company — and today owns MedHire, a neuroscience recruitment firm.",
+      href: "https://loraleeroberts.com",
+      linkLabel: "Visit her archive at loraleeroberts.com",
     },
   ],
   // Personal note shown under the family cards.
