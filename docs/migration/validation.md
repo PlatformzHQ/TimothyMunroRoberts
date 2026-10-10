@@ -62,6 +62,12 @@ The content defines 12 indexable routes:
 
 The build-only GitHub Actions workflow runs these checks on a pull request and can preserve the static export for review. Its permissions are read-only for repository content, with no Pages or AWS deployment access. It has not been reported as successful without a completed run.
 
+## GitHub delivery
+
+The branch `migration/aws-static-site` was pushed successfully through the existing Git connection. No force push or main-branch update was used. `gh pr create --draft` was attempted with the prepared title and body, but the environment rejected the request: `Post "https://api.github.com/graphql": Forbidden`. An earlier repository API request was also denied at `api.github.com`. The available GitHub connector exposes read operations only, so no alternate write tool was available. No credential or network-policy change was attempted.
+
+The [prepared PR text](draft-pr.md) is ready to use when an authorized PR creation path is available. [Open the branch comparison](https://github.com/PlatformzHQ/TimothyMunroRoberts/compare/main...migration/aws-static-site) and select a draft pull request. A draft PR has not been created, and the PR-only validation workflow has not run.
+
 ## Remaining gates
 
 Restore the existing AWS session and verify account identity and plan eligibility. Obtain action-time approval for provisioning, any persistent access, DNS validation and eventual deployment. Export the full GoDaddy zone and review it before proposing Route 53 changes. Complete full-build, HTTP, responsive visual and AWS preview verification. Obtain explicit user confirmation immediately before DNS cutover. Keep GitHub Pages available for rollback.

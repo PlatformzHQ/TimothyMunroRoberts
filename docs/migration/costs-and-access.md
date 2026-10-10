@@ -4,7 +4,7 @@ Prepared October 10, 2026 for AWS account **764595992126**. The **USD 250 monthl
 
 ## Planning estimate
 
-The draft uses pay-as-you-go S3 and CloudFront with Price Class 100. For a planning example of 100 GB delivered per month, one million HTTPS requests, one function invocation per request, and 1 GB of S3 storage including versions:
+The draft uses pay-as-you-go S3 and CloudFront with Price Class 100. For a planning example with US viewer traffic, 100 GB delivered per month, one million HTTPS requests, one function invocation per request, and 1 GB of S3 storage including versions:
 
 | Component | Planning amount per month |
 | --- | ---: |
