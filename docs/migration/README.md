@@ -17,7 +17,7 @@ The original Pages workflow is preserved as [github-pages.yml.disabled](archive/
 Use Node 24 and the committed package lock:
 
 ```bash
-npm ci
+npm ci --cache /tmp/tmr-npm-cache
 npm run lint
 node --test infra/aws/viewer-request.test.mjs
 npm run build
@@ -31,6 +31,8 @@ The application exports static files to `out/`. `next start` is not the producti
 
 The source includes a browser form that sends name, email and message to Formsubmit.co, a mailto fallback, click-open YouTube privacy embeds, and localStorage for theme and game state. These remain unchanged. No test lead was sent, and this work adds no visitor tracking, storage, logging or form proxy.
 
-`next/font/google` fetches Inter and Space Grotesk during the build, then serves the resulting files from the website. It requires HTTPS access to `fonts.googleapis.com` and the font binaries at `fonts.gstatic.com`. The local build encountered a proxy HTTP 403 for `fonts.googleapis.com`; no network policy was changed and no fallback font or mock build was substituted.
+`next/font/google` fetches Inter and Space Grotesk during the build, then serves the resulting files from the website. The user approved access to `fonts.googleapis.com`, `fonts.gstatic.com` and `api.github.com` in saved environment version `cecfgver_6aca4f02dafc81a38290411a100103e3`. In the fresh environment, the normal Node 24 build fetched the fonts and exported all 12 content routes successfully. GitHub API reads also succeeded. No font substitution, mocked export or network workaround was used.
+
+The explicit npm cache path above keeps temporary package data inside the writable sandbox. It does not change the registry or the lockfile. The ordinary default cache under `/home/agent/.npm` was not writable in this environment.
 
 See [validation results](validation.md) for what passed and what remains unverified, and [deployment and cutover](deployment.md) for the approval gates.

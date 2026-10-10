@@ -1,8 +1,8 @@
 // Local HTTP simulation of the edge function and S3 error mapping.
 // This does not replace testing the deployed AWS preview.
 import assert from 'node:assert/strict';
-import { createServer } from 'node:http';
-import { readFileSync, existsSync } from 'node:fs';
+import { createServer, request as httpRequest } from 'node:http';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { resolve, extname } from 'node:path';
 import { runInNewContext } from 'node:vm';
 import { routes } from './site-routes.mjs';
@@ -45,7 +45,7 @@ try {
     const response = await fetch(base + route);
     assert.equal(response.status, 200, route);
     assert.match(response.headers.get('content-type'), /text\/html/);
-    assert.match(await response.text(), /<title>/);
+    assert.equal(await response.text(), readFileSync(resolve(root, '.' + route, 'index.html'), 'utf8'), route);
     checks++;
     if (route !== '/') {
       const redirect = await fetch(base + route.slice(0, -1), { redirect: 'manual' });
@@ -54,19 +54,40 @@ try {
       checks++;
     }
   }
-  for (const route of ['/does-not-exist/', '/story/does-not-exist/', '/_next/missing.js']) {
-    assert.equal((await fetch(base + route)).status, 404, route);
+  for (const route of ['/does-not-exist/', '/story/does-not-exist/', '/_next/missing.js', '/story/does-not-exist']) {
+    const response = await fetch(base + route);
+    assert.equal(response.status, 404, route);
+    assert.equal(await response.text(), readFileSync(resolve(root, '404.html'), 'utf8'), route);
     checks++;
   }
-  for (const route of ['/robots.txt', '/sitemap.xml', '/portrait.jpg', '/og.png']) {
-    assert.equal((await fetch(base + route)).status, 200, route);
+  // Exercise every real emitted file, including fonts, images, JS, metadata,
+  // hidden files, and Next's per-route navigation payloads.
+  const files = readdirSync(root, { recursive: true, withFileTypes: true }).filter(entry => entry.isFile());
+  for (const entry of files) {
+    const file = resolve(entry.parentPath, entry.name);
+    const route = file.slice(root.length).split('/').map(encodeURIComponent).join('/');
+    const response = await fetch(base + route);
+    assert.equal(response.status, 200, route);
+    assert.deepEqual(Buffer.from(await response.arrayBuffer()), readFileSync(file), route);
     checks++;
   }
-  const www = await fetch(base + '/story/savvis/?source=test', { headers: { host: 'www.timothymunroroberts.com' }, redirect: 'manual' });
-  assert.equal(www.status, 301);
-  assert.equal(www.headers.get('location'), 'https://timothymunroroberts.com/story/savvis/?source=test');
+  // Node 24 fetch does not forward a custom Host header. Use the HTTP client
+  // to test the actual host seen by the viewer-request function.
+  const www = await new Promise((resolve, reject) => {
+    const request = httpRequest(base + '/story/savvis/?source=a%20b&source=c%2Bd', {
+      headers: { host: 'www.timothymunroroberts.com' }
+    }, response => {
+      response.resume();
+      response.on('end', () => resolve(response));
+      response.on('error', reject);
+    });
+    request.on('error', reject);
+    request.end();
+  });
+  assert.equal(www.statusCode, 301);
+  assert.equal(www.headers.location, 'https://timothymunroroberts.com/story/savvis/?source=a%20b&source=c%2Bd');
   checks++;
-  console.log(`Passed ${checks} local HTTP checks. AWS preview verification is still required.`);
+  console.log(`Passed ${checks} local HTTP checks across ${routes.length} content routes and ${files.length} exported files. AWS preview verification is still required.`);
 } finally {
   server.closeAllConnections();
   await new Promise(resolve => server.close(resolve));

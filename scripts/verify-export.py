@@ -43,8 +43,10 @@ def local_file(url, route):
     parsed = urlsplit(urljoin(APEX + route, url))
     if parsed.scheme not in ("http", "https") or parsed.netloc != urlsplit(APEX).netloc:
         return None
-    path = OUT / unquote(parsed.path).lstrip("/")
-    return path / "index.html" if parsed.path.endswith("/") else path
+    # A bare origin is the root document, just like an explicit trailing slash.
+    url_path = parsed.path or "/"
+    path = OUT / unquote(url_path).lstrip("/")
+    return path / "index.html" if url_path.endswith("/") else path
 
 
 assert OUT.is_dir(), "No out/ export exists. Run a successful npm run build first."
@@ -82,7 +84,10 @@ for route in ROUTES:
 
 # Verify font and other asset references in every emitted stylesheet.
 for css in OUT.rglob("*.css"):
-    for url in re.findall(r"url\([\"']?([^\)\"']+)", css.read_text()):
+    # Match a whole quoted URL, so url(...) inside an inline SVG data URI
+    # is not mistaken for a separate file reference.
+    for match in re.finditer(r'''url\(\s*(?:"([^"]*)"|'([^']*)'|([^\s)'"]+))\s*\)''', css.read_text()):
+        url = next(value for value in match.groups() if value is not None)
         target = local_file(url, "/" + str(css.relative_to(OUT)))
         if target is not None:
             assert target.is_file(), f"Broken CSS asset: {css} -> {url}"

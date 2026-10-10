@@ -1,0 +1,936 @@
+{
+  "routes": [
+    "/",
+    "/story/platformz/",
+    "/story/fur4/",
+    "/story/ceosavvy/",
+    "/story/hashingspace/",
+    "/story/stationdigital/",
+    "/story/savtira/",
+    "/story/gamestreamer/",
+    "/story/phantom/",
+    "/story/phoenix/",
+    "/story/intira/",
+    "/story/savvis/"
+  ],
+  "route_count": 12,
+  "local_references_checked": 329,
+  "export_files": 160,
+  "export_bytes": 4013778,
+  "result": "passed",
+  "route_metadata": [
+    {
+      "route": "/",
+      "title": "Timothy Munro Roberts \u2014 Technology Founder \u00b7 Enterprise Architect \u00b7 AI Platform Designer",
+      "canonical": "https://timothymunroroberts.com/",
+      "description": "Timothy Munro Roberts is a technology founder, enterprise architect, and platform designer with 25+ years building and scaling high-availability commerce and infrastructure platforms. He co-founded SAVVIS Communications (NASDAQ: SVVS; later acquired by CenturyLink for ~$3.4B), founded Intira (the first company to sell cloud computing as a service; lineage acquired by Verizon for ~$1.6B via Terremark), and took Phantom Entertainment, StationDigital, and HashingSpace public. Today he is CEO of Platformz and COO/CTO of FUR4.",
+      "og_url": "https://timothymunroroberts.com/",
+      "twitter_card": "summary_large_image"
+    },
+    {
+      "route": "/story/platformz/",
+      "title": "Platformz \u2014 Chief Executive Officer | Timothy Munro Roberts",
+      "canonical": "https://timothymunroroberts.com/story/platformz/",
+      "description": "A multi-tenant, enterprise-class commerce platform and agency powering consumer brands (pet, sports, and more). Inventor and principal designer of the underlying architecture, with patent filings prepared.",
+      "og_url": "https://timothymunroroberts.com/story/platformz/",
+      "twitter_card": "summary_large_image"
+    },
+    {
+      "route": "/story/fur4/",
+      "title": "FUR4 \u2014 Chief Operating Officer &amp; Chief Technology Officer | Timothy Munro Roberts",
+      "canonical": "https://timothymunroroberts.com/story/fur4/",
+      "description": "Premium pet-grooming brand led by the original inventor of the Furminator. I own nearly every operational and technical layer \u2014 from the decoupled commerce stack to global manufacturing, finance, and channels.",
+      "og_url": "https://timothymunroroberts.com/story/fur4/",
+      "twitter_card": "summary_large_image"
+    },
+    {
+      "route": "/story/ceosavvy/",
+      "title": "CEOSavvy, LLC \u2014 Managing Director | Timothy Munro Roberts",
+      "canonical": "https://timothymunroroberts.com/story/ceosavvy/",
+      "description": "An advisory and consulting practice for startups and early/growth-stage companies \u2014 board roles, strategy, finance, and go-to-market for founders moving from idea to fundable business.",
+      "og_url": "https://timothymunroroberts.com/story/ceosavvy/",
+      "twitter_card": "summary_large_image"
+    },
+    {
+      "route": "/story/hashingspace/",
+      "title": "HashingSpace Corporation \u2014 Founder, Chairman, CEO &amp; CTO | Timothy Munro Roberts",
+      "canonical": "https://timothymunroroberts.com/story/hashingspace/",
+      "description": "A Bitcoin mining, hosting, and data-center company \u2014 plus wallet, exchange, cloud-hashing, Stratum/P2P pools, and a pool scanner. An early, deep bet on Bitcoin and blockchain infrastructure.",
+      "og_url": "https://timothymunroroberts.com/story/hashingspace/",
+      "twitter_card": "summary_large_image"
+    },
+    {
+      "route": "/story/stationdigital/",
+      "title": "StationDigital Corporation \u2014 Founder, Chairman, CEO &amp; CTO | Timothy Munro Roberts",
+      "canonical": "https://timothymunroroberts.com/story/stationdigital/",
+      "description": "Designed and pioneered an ad-supported, DMCA-compliant digital playlist radio station and video system \u2014 with a catalog of 22M+ tracks \u2014 taken public via reverse merger.",
+      "og_url": "https://timothymunroroberts.com/story/stationdigital/",
+      "twitter_card": "summary_large_image"
+    },
+    {
+      "route": "/story/savtira/",
+      "title": "Savtira Corporation \u2014 Founder, Chairman &amp; CEO | Timothy Munro Roberts",
+      "canonical": "https://timothymunroroberts.com/story/savtira/",
+      "description": "Designed and pioneered an enterprise-class cloud commerce eco-system for physical and digital goods \u2014 a cross-merchandised 'superstore' with a download manager, cloud locker, and application streaming, on a virtualized IBM WebSphere Commerce SaaS.",
+      "og_url": "https://timothymunroroberts.com/story/savtira/",
+      "twitter_card": "summary_large_image"
+    },
+    {
+      "route": "/story/gamestreamer/",
+      "title": "GameStreamer, Inc. \u2014 Chief Executive Officer &amp; CTO | Timothy Munro Roberts",
+      "canonical": "https://timothymunroroberts.com/story/gamestreamer/",
+      "description": "Took a B2B video-game distribution company from idea to fully operational \u2014 building the first automated game-publishing system and a white-label storefront SDK. Sold to Media Speed Tech, LLC.",
+      "og_url": "https://timothymunroroberts.com/story/gamestreamer/",
+      "twitter_card": "summary_large_image"
+    },
+    {
+      "route": "/story/phantom/",
+      "title": "Infinum Labs / Phantom Entertainment \u2014 Founder, CEO &amp; CTO | Timothy Munro Roberts",
+      "canonical": "https://timothymunroroberts.com/story/phantom/",
+      "description": "A PC-based living-room game platform concept, taken public via reverse merger \u2014 pioneering on-demand game delivery a decade before streaming was viable.",
+      "og_url": "https://timothymunroroberts.com/story/phantom/",
+      "twitter_card": "summary_large_image"
+    },
+    {
+      "route": "/story/phoenix/",
+      "title": "Phoenix Networks \u2014 Director &amp; Investor | Timothy Munro Roberts",
+      "canonical": "https://timothymunroroberts.com/story/phoenix/",
+      "description": "Invested in and served as a director of Phoenix Networks \u2014 a consumer and business DSL provider that grew into one of the top DSL providers in the world.",
+      "og_url": "https://timothymunroroberts.com/story/phoenix/",
+      "twitter_card": "summary_large_image"
+    },
+    {
+      "route": "/story/intira/",
+      "title": "Intira Corporation \u2014 Founder &amp; Chief Executive Officer | Timothy Munro Roberts",
+      "canonical": "https://timothymunroroberts.com/story/intira/",
+      "description": "Founded Intira to add data centers onto the SAVVIS network design \u2014 and built the first company ever to sell cloud computing as a service ('Netsourcing'), running customers' infrastructure end to end.",
+      "og_url": "https://timothymunroroberts.com/story/intira/",
+      "twitter_card": "summary_large_image"
+    },
+    {
+      "route": "/story/savvis/",
+      "title": "Diamond.net / SAVVIS Communications \u2014 Co-founder &amp; Chief Technology Officer | Timothy Munro Roberts",
+      "canonical": "https://timothymunroroberts.com/story/savvis/",
+      "description": "Co-founded Diamond.net (aka SAVVIS) and, as CTO, designed the first high-quality national Internet backbone \u2014 originating the concepts of QoS guarantees, metered billing, and PNAPs with the world's first OC3 ATM Layer-2 backbone linking 22 Tier-1 cities.",
+      "og_url": "https://timothymunroroberts.com/story/savvis/",
+      "twitter_card": "summary_large_image"
+    }
+  ],
+  "extension_counts": {
+    "(none)": 2,
+    ".css": 1,
+    ".html": 15,
+    ".jpg": 2,
+    ".js": 17,
+    ".png": 1,
+    ".svg": 7,
+    ".txt": 104,
+    ".woff2": 10,
+    ".xml": 1
+  },
+  "build_id": "Qe35KiFhHiRt8zxqrnDbR",
+  "node_version": "v24.19.0",
+  "source_sha": "d97c981c6e504caff7feb2a761c473db088372c9",
+  "file_manifest": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "404/index.html",
+      "bytes": 22471,
+      "sha256": "6574432e5107df8e127bb811397e00a96d3c3f426e0e6df4e373963d62ed70b1"
+    },
+    {
+      "path": "404.html",
+      "bytes": 22471,
+      "sha256": "6574432e5107df8e127bb811397e00a96d3c3f426e0e6df4e373963d62ed70b1"
+    },
+    {
+      "path": "7ac2af7a60ca508cb406b80eeeabf701.txt",
+      "bytes": 33,
+      "sha256": "c2157e0878d1864b0cebac454da534b3da2c15aad2268f828e523b02acf3f052"
+    },
+    {
+      "path": "CNAME",
+      "bytes": 24,
+      "sha256": "e9c3ebfc300c998d8f5129d4d45a88839d35c87b0e1777b957899d1817cbfb68"
+    },
+    {
+      "path": "__next.__PAGE__.txt",
+      "bytes": 7572,
+      "sha256": "5027faf61e8372bd74ffa794af59878f2c5af65f78f07b8f1ffac12a543cb76a"
+    },
+    {
+      "path": "__next._full.txt",
+      "bytes": 18302,
+      "sha256": "3bcf4208ae772a08d4580cac1bf8159a423453c3e9b68f8ef77acc9fff1b1f17"
+    },
+    {
+      "path": "__next._head.txt",
+      "bytes": 4424,
+      "sha256": "59faa65f78ecd01e4c8eead4c05950fdc9cb817447e340b26041fd93750f44c5"
+    },
+    {
+      "path": "__next._index.txt",
+      "bytes": 5459,
+      "sha256": "56205ec2d0a398f8e1278c05b6a8d797760efbb970dec2ccc5d960323a833f77"
+    },
+    {
+      "path": "__next._tree.txt",
+      "bytes": 472,
+      "sha256": "a5136bc7673e62d2069a89e65780f1d4c806eeb9beeb640cd0d7471726ac5b94"
+    },
+    {
+      "path": "_next/static/Qe35KiFhHiRt8zxqrnDbR/_buildManifest.js",
+      "bytes": 219,
+      "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea"
+    },
+    {
+      "path": "_next/static/Qe35KiFhHiRt8zxqrnDbR/_clientMiddlewareManifest.js",
+      "bytes": 96,
+      "sha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a"
+    },
+    {
+      "path": "_next/static/Qe35KiFhHiRt8zxqrnDbR/_ssgManifest.js",
+      "bytes": 105,
+      "sha256": "2f7492f59c2d9566f322a20547e2719720ebf502c9c1e33902c753c43a397aeb"
+    },
+    {
+      "path": "_next/static/chunks/05-c3ty_6dwfk.js",
+      "bytes": 3377,
+      "sha256": "aee2d073d2a1157cfe5c98907f90b3967de4c3625f9ffb154bd1979ae2b917b0"
+    },
+    {
+      "path": "_next/static/chunks/0cz1d0mv5g_q7.js",
+      "bytes": 112594,
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+    },
+    {
+      "path": "_next/static/chunks/0il4qsduueun8.js",
+      "bytes": 50323,
+      "sha256": "99392aa1b5a4876da104f3b686db4aae46ed5a1855b951204b6bcd9f196cb91f"
+    },
+    {
+      "path": "_next/static/chunks/0yz-2zz_t4sc5.js",
+      "bytes": 5829,
+      "sha256": "160ac435f9d876401504fead8e502de7db7c89912e4fde1455709195bddf15d5"
+    },
+    {
+      "path": "_next/static/chunks/14mrh2-p_w84d.js",
+      "bytes": 54646,
+      "sha256": "a3ac200f3ab8bfa57cf78882057741ddb5c0fbc9e2490c5d951c099b37484206"
+    },
+    {
+      "path": "_next/static/chunks/1o-m9ax_2wld_.js",
+      "bytes": 145089,
+      "sha256": "19f672eca537e9eb076658d46363b5a70ce15305b666665c83346af4b6a44212"
+    },
+    {
+      "path": "_next/static/chunks/1pvb0-k0k5dow.js",
+      "bytes": 22934,
+      "sha256": "830f683ba58541008411338d29b275e59604ce4615bb497316cf05f748ec15ad"
+    },
+    {
+      "path": "_next/static/chunks/1xmxw2isab8of.css",
+      "bytes": 60749,
+      "sha256": "f35ec090cfe641a5f3e512a0c1cf996fcf7b1c8b6ed8f4937939fd4d1c507e41"
+    },
+    {
+      "path": "_next/static/chunks/1yo_umd_w-ag9.js",
+      "bytes": 987097,
+      "sha256": "7554d92ced3674e4925862128e4393b81550b9a8a3be77bebc7102386d57f683"
+    },
+    {
+      "path": "_next/static/chunks/24n0lu17vyyw9.js",
+      "bytes": 112577,
+      "sha256": "f22cb3d5eb7b447b3c3e3c3d67fe6a2f6c3e24f19c7f91481741e5af28809fb8"
+    },
+    {
+      "path": "_next/static/chunks/2kqrbujyxigm8.js",
+      "bytes": 50234,
+      "sha256": "7864aa869ff0b3a2ffa8680a373d0d130c903c844bbe45baa650450e2cb4f906"
+    },
+    {
+      "path": "_next/static/chunks/2wrkeoqxx4-5e.js",
+      "bytes": 1046,
+      "sha256": "24dbf8d4fe58b55a99f0280931d82d16970d10ebb398314c484f244613635e24"
+    },
+    {
+      "path": "_next/static/chunks/3j27vzhmynpf5.js",
+      "bytes": 24044,
+      "sha256": "5cc3a21fba812c05344227831faa8d7be81e6ed3ac384e0991dfc6f8acb61a38"
+    },
+    {
+      "path": "_next/static/chunks/3jh1u-s3k0bkk.js",
+      "bytes": 203384,
+      "sha256": "fd9ebc2ada78c45db51f58ddfdce918d679a0a811dcdff0587c4b3d156b2d07d"
+    },
+    {
+      "path": "_next/static/chunks/turbopack-3byfdr1xfbjph.js",
+      "bytes": 10613,
+      "sha256": "acb23c23f07405e25d31a44ac346d5da68f9e90cd82f80864fce74e47f100a33"
+    },
+    {
+      "path": "_next/static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2",
+      "bytes": 22320,
+      "sha256": "a0d054c4af557de20afd6ca59f47ab353bcaec49c63ff04b6c9d39d0f8910557"
+    },
+    {
+      "path": "_next/static/media/1bffadaabf893a1e-s.3-6t-g6q0vh0a.woff2",
+      "bytes": 85272,
+      "sha256": "a28eb6d3ccb534ae0c94ca999371df024aab60b08c3c8a5720ee9e32fa0faaa2"
+    },
+    {
+      "path": "_next/static/media/28868e710e86be81-s.2eksvhm1z0jwa.woff2",
+      "bytes": 18924,
+      "sha256": "054c266fbb441ee059365dba0885d206f67ca05b375de869b88e02ebfccc9b9d"
+    },
+    {
+      "path": "_next/static/media/2bbe8d2671613f1f-s.0k62hbripvv8p.woff2",
+      "bytes": 10280,
+      "sha256": "8db00ff46c67b22cda8bed865acf7077651cac8d2841d5b40980556b48961931"
+    },
+    {
+      "path": "_next/static/media/2c55a0e60120577a-s.0-dom-5bn10r2.woff2",
+      "bytes": 25844,
+      "sha256": "fccca918fea40089dacadc7045861314d1a6bc91f1f323cc1eeb22ebcdb321b5"
+    },
+    {
+      "path": "_next/static/media/32687112bd2dd8db-s.1gepa_7fcx9fm.woff2",
+      "bytes": 6772,
+      "sha256": "d699664b145bfeeccc66a4cce7fa55e14eb63efd7ec6b0b2ec52e25dd98f3917"
+    },
+    {
+      "path": "_next/static/media/5476f68d60460930-s.2uwcyprjm3xu3.woff2",
+      "bytes": 19044,
+      "sha256": "46dd4cdca58c26ae87cc6927657bf83b2e8abfc39ffd0ab176e301a8d28d22bf"
+    },
+    {
+      "path": "_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2",
+      "bytes": 48432,
+      "sha256": "c940764593d0fe5d596be327ca7558855e018039fb78509aa21921fd3644c3e4"
+    },
+    {
+      "path": "_next/static/media/9c72aa0f40e4eef8-s.1y4-pdgsjb-pw.woff2",
+      "bytes": 18744,
+      "sha256": "aebf2ab4a4ce6810d73c1ac7be7cafb4e5ec4cee2d6db5fb3e09691747ec4bd6"
+    },
+    {
+      "path": "_next/static/media/ad66f9afd8947f86-s.3lvt2whj97whp.woff2",
+      "bytes": 11272,
+      "sha256": "a2e2c783ca6f9c20486e81e72a279203e86730bbf8f01ff6a5ee9dbd09e1c271"
+    },
+    {
+      "path": "_next/static/media/icon.36syc_q5130qh.svg",
+      "bytes": 517,
+      "sha256": "cf046bcfc5987477306794437fcd8708ed479ced51f16ba4c6c99359897c2f6e"
+    },
+    {
+      "path": "_next/static/media/portrait.233swwqu16-4g.jpg",
+      "bytes": 127569,
+      "sha256": "2ab035a1bfd1a730642e764cf398216d07ea16bb1374fb4601927ca2c3fb7df4"
+    },
+    {
+      "path": "_not-found/__next._full.txt",
+      "bytes": 12136,
+      "sha256": "d57bed91d12ff39b2eec63862e6870ade7c0c7bfdb31dcabca9fe7706e8c6bfd"
+    },
+    {
+      "path": "_not-found/__next._head.txt",
+      "bytes": 4483,
+      "sha256": "55d415496aa35fd05dedae7cb1b0906686aad5991bc05e1c2c0894a9db3ad41b"
+    },
+    {
+      "path": "_not-found/__next._index.txt",
+      "bytes": 5459,
+      "sha256": "56205ec2d0a398f8e1278c05b6a8d797760efbb970dec2ccc5d960323a833f77"
+    },
+    {
+      "path": "_not-found/__next._not-found.__PAGE__.txt",
+      "bytes": 1462,
+      "sha256": "1c812ba86d3a9797498fcd9279717272f9304f8b02838f399ec261afcca534b4"
+    },
+    {
+      "path": "_not-found/__next._not-found.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "_not-found/__next._tree.txt",
+      "bytes": 319,
+      "sha256": "6302bddd14c55992bcba17b5ca190ef2cec96499fd80983b4f34c72047ec6f2c"
+    },
+    {
+      "path": "_not-found/index.html",
+      "bytes": 22471,
+      "sha256": "6574432e5107df8e127bb811397e00a96d3c3f426e0e6df4e373963d62ed70b1"
+    },
+    {
+      "path": "_not-found/index.txt",
+      "bytes": 12136,
+      "sha256": "d57bed91d12ff39b2eec63862e6870ade7c0c7bfdb31dcabca9fe7706e8c6bfd"
+    },
+    {
+      "path": "file.svg",
+      "bytes": 391,
+      "sha256": "2b67812c325c199a02536cdbeea0c593a72f707d323b72ee3e08dbab06753bd4"
+    },
+    {
+      "path": "globe.svg",
+      "bytes": 1035,
+      "sha256": "b614b9bf183925957661ac851498fe1d8029fd43a62fbfed86f9e2624a57e7cf"
+    },
+    {
+      "path": "icon.svg",
+      "bytes": 517,
+      "sha256": "cf046bcfc5987477306794437fcd8708ed479ced51f16ba4c6c99359897c2f6e"
+    },
+    {
+      "path": "index.html",
+      "bytes": 239242,
+      "sha256": "be8304b38131a36eb38d7e7c92fa8f1483146ec83a5a8482fbd2cec933eb117d"
+    },
+    {
+      "path": "index.txt",
+      "bytes": 18302,
+      "sha256": "3bcf4208ae772a08d4580cac1bf8159a423453c3e9b68f8ef77acc9fff1b1f17"
+    },
+    {
+      "path": "llms.txt",
+      "bytes": 5328,
+      "sha256": "3567b8fbcace60cbd5452276f04a187e8a7ec4a97bc6410cbdb48f8bfc88949c"
+    },
+    {
+      "path": "next.svg",
+      "bytes": 1375,
+      "sha256": "55995dfad6ecb4945a1e856ddca03c5e16aa5bf13fd21b4df6a74ae79357bcfc"
+    },
+    {
+      "path": "og.png",
+      "bytes": 143235,
+      "sha256": "750e6cc40560e58e8109bb8352ffd7cca906c3c344553bd3bc07c374f2968d3a"
+    },
+    {
+      "path": "portrait.jpg",
+      "bytes": 127569,
+      "sha256": "2ab035a1bfd1a730642e764cf398216d07ea16bb1374fb4601927ca2c3fb7df4"
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 115,
+      "sha256": "e865d4c2610de164858d6f8241224df5ebb11ef7e3164ecef6de68f27bdac963"
+    },
+    {
+      "path": "sitemap.xml",
+      "bytes": 2184,
+      "sha256": "ab376d92db60f65e9df4d7ca2a576e5224af9d239b30d0e25ac163185df5c138"
+    },
+    {
+      "path": "story/ceosavvy/__next._full.txt",
+      "bytes": 19825,
+      "sha256": "ebfdd17b090f1b3c92b750d8b945471b51fbb333bce4ee5f42e2254e59eb2f1c"
+    },
+    {
+      "path": "story/ceosavvy/__next._head.txt",
+      "bytes": 3165,
+      "sha256": "e6134c9b1bc805eb3cb7eb93f4e017dd6ba3506d0f0a446122eb6ce16d9703e0"
+    },
+    {
+      "path": "story/ceosavvy/__next._index.txt",
+      "bytes": 5459,
+      "sha256": "56205ec2d0a398f8e1278c05b6a8d797760efbb970dec2ccc5d960323a833f77"
+    },
+    {
+      "path": "story/ceosavvy/__next._tree.txt",
+      "bytes": 650,
+      "sha256": "2128e785db5e80cff1aac8da4b694a979aec1d1de0c470e64fb3b488aaa25add"
+    },
+    {
+      "path": "story/ceosavvy/__next.story.$d$slug.__PAGE__.txt",
+      "bytes": 9539,
+      "sha256": "0c8ca7a48800e445c2ddec3caf594f6d08edc92ac1c92c9d07b4a7114725e1de"
+    },
+    {
+      "path": "story/ceosavvy/__next.story.$d$slug.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/ceosavvy/__next.story.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/ceosavvy/index.html",
+      "bytes": 36197,
+      "sha256": "6badd940c46e8c6476bf3ced22604246c6fb70912511f884424eca2989564a75"
+    },
+    {
+      "path": "story/ceosavvy/index.txt",
+      "bytes": 19825,
+      "sha256": "ebfdd17b090f1b3c92b750d8b945471b51fbb333bce4ee5f42e2254e59eb2f1c"
+    },
+    {
+      "path": "story/fur4/__next._full.txt",
+      "bytes": 21766,
+      "sha256": "811879aeee1cac4420a3bf96532234c1158920f246c096440d40eba4aa144b21"
+    },
+    {
+      "path": "story/fur4/__next._head.txt",
+      "bytes": 3304,
+      "sha256": "c1ea36b41f4eb29d8491a0fa3e6240ae15374475f8c362f5db34b65a1ca90c90"
+    },
+    {
+      "path": "story/fur4/__next._index.txt",
+      "bytes": 5459,
+      "sha256": "56205ec2d0a398f8e1278c05b6a8d797760efbb970dec2ccc5d960323a833f77"
+    },
+    {
+      "path": "story/fur4/__next._tree.txt",
+      "bytes": 646,
+      "sha256": "f9e1b969d999ded295d8cfa233910574ca7a453eada2940fb3c9c33514b800eb"
+    },
+    {
+      "path": "story/fur4/__next.story.$d$slug.__PAGE__.txt",
+      "bytes": 11345,
+      "sha256": "89177a887680d4688059e849f235cca9d15ff0cd588b7b688d214652c5a232b0"
+    },
+    {
+      "path": "story/fur4/__next.story.$d$slug.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/fur4/__next.story.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/fur4/index.html",
+      "bytes": 39700,
+      "sha256": "f758419f0faff93ff3d4fbabae2220a79f8bbcdca1b2d4050fe649ce757434cc"
+    },
+    {
+      "path": "story/fur4/index.txt",
+      "bytes": 21766,
+      "sha256": "811879aeee1cac4420a3bf96532234c1158920f246c096440d40eba4aa144b21"
+    },
+    {
+      "path": "story/gamestreamer/__next._full.txt",
+      "bytes": 20863,
+      "sha256": "4ca3099477867f413aa66a321f4e1470a296308bee4fce482d99de82a33af7d6"
+    },
+    {
+      "path": "story/gamestreamer/__next._head.txt",
+      "bytes": 3248,
+      "sha256": "a0551649ed909603070fb3635518c23fbe3433f56dd149302ad53d191142ebf1"
+    },
+    {
+      "path": "story/gamestreamer/__next._index.txt",
+      "bytes": 5459,
+      "sha256": "56205ec2d0a398f8e1278c05b6a8d797760efbb970dec2ccc5d960323a833f77"
+    },
+    {
+      "path": "story/gamestreamer/__next._tree.txt",
+      "bytes": 654,
+      "sha256": "14cebc427be289d51399f62cd1c1e95be5b82e240c5c015d13a3854d7242f748"
+    },
+    {
+      "path": "story/gamestreamer/__next.story.$d$slug.__PAGE__.txt",
+      "bytes": 10484,
+      "sha256": "d659d8d4152dfb45bb78765c1cd6c3b8c46baec1183be2b31e89cc0e6a3f0c75"
+    },
+    {
+      "path": "story/gamestreamer/__next.story.$d$slug.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/gamestreamer/__next.story.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/gamestreamer/index.html",
+      "bytes": 38063,
+      "sha256": "15284b302b12439023f65ec8a975912a18d71b2361f1e13f2203f0914307b5e7"
+    },
+    {
+      "path": "story/gamestreamer/index.txt",
+      "bytes": 20863,
+      "sha256": "4ca3099477867f413aa66a321f4e1470a296308bee4fce482d99de82a33af7d6"
+    },
+    {
+      "path": "story/hashingspace/__next._full.txt",
+      "bytes": 20459,
+      "sha256": "be73cd45fbd2a924defc5e7586c74de71f68dc7b838dc593847c9b7ca9385a9d"
+    },
+    {
+      "path": "story/hashingspace/__next._head.txt",
+      "bytes": 3257,
+      "sha256": "3903581c90e3b4edd2a308f79f31e3175ac4638e26e8b967364c58003dfe5323"
+    },
+    {
+      "path": "story/hashingspace/__next._index.txt",
+      "bytes": 5459,
+      "sha256": "56205ec2d0a398f8e1278c05b6a8d797760efbb970dec2ccc5d960323a833f77"
+    },
+    {
+      "path": "story/hashingspace/__next._tree.txt",
+      "bytes": 654,
+      "sha256": "d7860765322afe81df6d527e570fa0343e8e0cde2fae518fbe7e42a9fd514d7f"
+    },
+    {
+      "path": "story/hashingspace/__next.story.$d$slug.__PAGE__.txt",
+      "bytes": 10071,
+      "sha256": "33c3386f9fc3316a49f8be8ec0faf1fb4d2fa0439a7a2e211f3fb56b76ccc74a"
+    },
+    {
+      "path": "story/hashingspace/__next.story.$d$slug.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/hashingspace/__next.story.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/hashingspace/index.html",
+      "bytes": 37435,
+      "sha256": "762c99f8d9f2b7f32ab72dcb697c2195b7ad61789f19f48baea8e2bcfe3bf846"
+    },
+    {
+      "path": "story/hashingspace/index.txt",
+      "bytes": 20459,
+      "sha256": "be73cd45fbd2a924defc5e7586c74de71f68dc7b838dc593847c9b7ca9385a9d"
+    },
+    {
+      "path": "story/intira/__next._full.txt",
+      "bytes": 20530,
+      "sha256": "481de59e1fdcb398e7d487df14e2f8a6750624805add84cee7032c403b7d4363"
+    },
+    {
+      "path": "story/intira/__next._head.txt",
+      "bytes": 3272,
+      "sha256": "4cef7d41191a188e09e65477061bb0642ee17f394297914fc2bd2ece379eebb3"
+    },
+    {
+      "path": "story/intira/__next._index.txt",
+      "bytes": 5459,
+      "sha256": "56205ec2d0a398f8e1278c05b6a8d797760efbb970dec2ccc5d960323a833f77"
+    },
+    {
+      "path": "story/intira/__next._tree.txt",
+      "bytes": 648,
+      "sha256": "253c94f593c21e01ce8fe3870fd47ab81ce4f1c2a0679fe7410e827183733815"
+    },
+    {
+      "path": "story/intira/__next.story.$d$slug.__PAGE__.txt",
+      "bytes": 10139,
+      "sha256": "63f196ae41005b705d1ca738e1706b4d52b77fd715811d9b9914105705ac3a85"
+    },
+    {
+      "path": "story/intira/__next.story.$d$slug.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/intira/__next.story.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/intira/index.html",
+      "bytes": 37549,
+      "sha256": "d093a7d4b2e34946f13713cae15c73d684b49b3584d2cf92bd9ceb280db0d233"
+    },
+    {
+      "path": "story/intira/index.txt",
+      "bytes": 20530,
+      "sha256": "481de59e1fdcb398e7d487df14e2f8a6750624805add84cee7032c403b7d4363"
+    },
+    {
+      "path": "story/phantom/__next._full.txt",
+      "bytes": 20327,
+      "sha256": "199e249a80fff279a3e2916658f5009eaf2e6e59113804378434c905aa2526f8"
+    },
+    {
+      "path": "story/phantom/__next._head.txt",
+      "bytes": 3139,
+      "sha256": "3ad199150b4180990c3982f076edb48b8f8526b0beeac55cb8a2a97f6cdb2212"
+    },
+    {
+      "path": "story/phantom/__next._index.txt",
+      "bytes": 5459,
+      "sha256": "56205ec2d0a398f8e1278c05b6a8d797760efbb970dec2ccc5d960323a833f77"
+    },
+    {
+      "path": "story/phantom/__next._tree.txt",
+      "bytes": 649,
+      "sha256": "d465eda6fa868170529ef63bd2cb6bd0ad54a8bb0c3ae796917bb3583fcb349f"
+    },
+    {
+      "path": "story/phantom/__next.story.$d$slug.__PAGE__.txt",
+      "bytes": 10075,
+      "sha256": "d3df704af8a1f85ad8a19102f971f2c4f702002f523ae6704427d11ab4a24786"
+    },
+    {
+      "path": "story/phantom/__next.story.$d$slug.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/phantom/__next.story.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/phantom/index.html",
+      "bytes": 37109,
+      "sha256": "92335e6589d005c1c1fed9c57f06ce991cf90021a687b853f1c67b2c7341b779"
+    },
+    {
+      "path": "story/phantom/index.txt",
+      "bytes": 20327,
+      "sha256": "199e249a80fff279a3e2916658f5009eaf2e6e59113804378434c905aa2526f8"
+    },
+    {
+      "path": "story/phoenix/__next._full.txt",
+      "bytes": 18943,
+      "sha256": "791c12cb77ead7eb7e51af79d7665fecd9004a6892285d955bf33076252182d2"
+    },
+    {
+      "path": "story/phoenix/__next._head.txt",
+      "bytes": 3085,
+      "sha256": "ba0d298830663c883df62e264fb27b2eb5e09c6695bde9fd1b3191595d1dd61d"
+    },
+    {
+      "path": "story/phoenix/__next._index.txt",
+      "bytes": 5459,
+      "sha256": "56205ec2d0a398f8e1278c05b6a8d797760efbb970dec2ccc5d960323a833f77"
+    },
+    {
+      "path": "story/phoenix/__next._tree.txt",
+      "bytes": 649,
+      "sha256": "c97c89781f419a40686ef1b0a6336d64318f0d2366e4fca9254b8e980a08a97a"
+    },
+    {
+      "path": "story/phoenix/__next.story.$d$slug.__PAGE__.txt",
+      "bytes": 8743,
+      "sha256": "5d94d34f3fbc29238403d9d79faff0e96d814e4906947491fb74ec12cedb8ad6"
+    },
+    {
+      "path": "story/phoenix/__next.story.$d$slug.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/phoenix/__next.story.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/phoenix/index.html",
+      "bytes": 34615,
+      "sha256": "c85d7ff21e3042efb5634f8b0d35880d2b71c83950cc1b621e31442e666dd6e5"
+    },
+    {
+      "path": "story/phoenix/index.txt",
+      "bytes": 18943,
+      "sha256": "791c12cb77ead7eb7e51af79d7665fecd9004a6892285d955bf33076252182d2"
+    },
+    {
+      "path": "story/platformz/__next._full.txt",
+      "bytes": 21698,
+      "sha256": "b7998981eea30eddab05263f74c0cc8b7f5647ad081994b4efc00d0e9565828b"
+    },
+    {
+      "path": "story/platformz/__next._head.txt",
+      "bytes": 3230,
+      "sha256": "ce3917a94b93205a3aaa3d26d06a8aa56c22d1a09a10b9250bda737c421be1e6"
+    },
+    {
+      "path": "story/platformz/__next._index.txt",
+      "bytes": 5459,
+      "sha256": "56205ec2d0a398f8e1278c05b6a8d797760efbb970dec2ccc5d960323a833f77"
+    },
+    {
+      "path": "story/platformz/__next._tree.txt",
+      "bytes": 651,
+      "sha256": "8266d9fc9f26879052698d7c4ed4707953f1c96fc3b040cc7dc989215ca644f5"
+    },
+    {
+      "path": "story/platformz/__next.story.$d$slug.__PAGE__.txt",
+      "bytes": 11341,
+      "sha256": "2215a5121c21460678c1575fbc212ff5d7697b225422a7aff3312c3c30fd132f"
+    },
+    {
+      "path": "story/platformz/__next.story.$d$slug.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/platformz/__next.story.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/platformz/index.html",
+      "bytes": 39521,
+      "sha256": "c21c5c41fcca9a2967cb45aceea6cfafad7d4528470f2f94642531f547a6930a"
+    },
+    {
+      "path": "story/platformz/index.txt",
+      "bytes": 21698,
+      "sha256": "b7998981eea30eddab05263f74c0cc8b7f5647ad081994b4efc00d0e9565828b"
+    },
+    {
+      "path": "story/savtira/__next._full.txt",
+      "bytes": 21273,
+      "sha256": "f5eacf78ff4570f89ddaf62349fafbf2b3fac515e69927a4e6d49c49c046c95a"
+    },
+    {
+      "path": "story/savtira/__next._head.txt",
+      "bytes": 3388,
+      "sha256": "d952e66f242dc968c61d75c95fb01a454f61ad14ee4d46de4c02a4f00f0f3060"
+    },
+    {
+      "path": "story/savtira/__next._index.txt",
+      "bytes": 5459,
+      "sha256": "56205ec2d0a398f8e1278c05b6a8d797760efbb970dec2ccc5d960323a833f77"
+    },
+    {
+      "path": "story/savtira/__next._tree.txt",
+      "bytes": 649,
+      "sha256": "73e8a34308a1d0e09869a4356a0ab919b6448785b80b2bf3483c93b4db0ce717"
+    },
+    {
+      "path": "story/savtira/__next.story.$d$slug.__PAGE__.txt",
+      "bytes": 10762,
+      "sha256": "30b0afaa608dc89a515e58b2f7766efdec8dcc0b41686c0d47ad9e76cce50217"
+    },
+    {
+      "path": "story/savtira/__next.story.$d$slug.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/savtira/__next.story.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/savtira/index.html",
+      "bytes": 38855,
+      "sha256": "e93b8426dbbcc5e77741d1a33fbce550f7bb68231e7b9a06c6688c250ee6cd4f"
+    },
+    {
+      "path": "story/savtira/index.txt",
+      "bytes": 21273,
+      "sha256": "f5eacf78ff4570f89ddaf62349fafbf2b3fac515e69927a4e6d49c49c046c95a"
+    },
+    {
+      "path": "story/savvis/__next._full.txt",
+      "bytes": 21115,
+      "sha256": "e0f6494eeab6e9216b8347e686388437a3e9dd7dbfdfbf73322e85ace72ef02c"
+    },
+    {
+      "path": "story/savvis/__next._head.txt",
+      "bytes": 3497,
+      "sha256": "629b14cc2e53d54566f3cfa64b3c1ab7b5832af561eacfb7028326590605426e"
+    },
+    {
+      "path": "story/savvis/__next._index.txt",
+      "bytes": 5459,
+      "sha256": "56205ec2d0a398f8e1278c05b6a8d797760efbb970dec2ccc5d960323a833f77"
+    },
+    {
+      "path": "story/savvis/__next._tree.txt",
+      "bytes": 648,
+      "sha256": "43324cde3761d34997dd992cec9f97b72ad643b85d64adfe2adbda5615987ff5"
+    },
+    {
+      "path": "story/savvis/__next.story.$d$slug.__PAGE__.txt",
+      "bytes": 10497,
+      "sha256": "9e49951eaf23d1e371400a7ac6ce6aeb631902ace5ed0279b1057b176aa5091a"
+    },
+    {
+      "path": "story/savvis/__next.story.$d$slug.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/savvis/__next.story.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/savvis/index.html",
+      "bytes": 38605,
+      "sha256": "a106896379cf749201a711427979707fd9f8ea07df86304a8f17cb5a25c34219"
+    },
+    {
+      "path": "story/savvis/index.txt",
+      "bytes": 21115,
+      "sha256": "e0f6494eeab6e9216b8347e686388437a3e9dd7dbfdfbf73322e85ace72ef02c"
+    },
+    {
+      "path": "story/stationdigital/__next._full.txt",
+      "bytes": 20125,
+      "sha256": "0da3b6f1231069ac53e98e877c6ee1d8fc325305baad228a9fc442ddd629eb27"
+    },
+    {
+      "path": "story/stationdigital/__next._head.txt",
+      "bytes": 3210,
+      "sha256": "7c543ae059d19f8c6e10337550dc5f73d680bfb5124e78173a52665da30c2a19"
+    },
+    {
+      "path": "story/stationdigital/__next._index.txt",
+      "bytes": 5459,
+      "sha256": "56205ec2d0a398f8e1278c05b6a8d797760efbb970dec2ccc5d960323a833f77"
+    },
+    {
+      "path": "story/stationdigital/__next._tree.txt",
+      "bytes": 656,
+      "sha256": "e435037d2b58331dddb084d25b3fa7d7d29922c02fa59619a23d367124c68a06"
+    },
+    {
+      "path": "story/stationdigital/__next.story.$d$slug.__PAGE__.txt",
+      "bytes": 9780,
+      "sha256": "701d70d64afb5d523e0e8245b794b29c28efbd6b44ca9d040095ebab6a79cc7f"
+    },
+    {
+      "path": "story/stationdigital/__next.story.$d$slug.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/stationdigital/__next.story.txt",
+      "bytes": 445,
+      "sha256": "f15ad0646e2395751450258686d06fcf2ac6c908b3141e53288bdcd7f16d5b10"
+    },
+    {
+      "path": "story/stationdigital/index.html",
+      "bytes": 36826,
+      "sha256": "f5bc6ddb6f7e312cf4bcf2b12a7f1a699f2d9ef84b433e95e511049c8573f1f2"
+    },
+    {
+      "path": "story/stationdigital/index.txt",
+      "bytes": 20125,
+      "sha256": "0da3b6f1231069ac53e98e877c6ee1d8fc325305baad228a9fc442ddd629eb27"
+    },
+    {
+      "path": "vercel.svg",
+      "bytes": 128,
+      "sha256": "f081337b2fee635b455b63275406a3e7f39d6a014e25ad90dab5a67e62a12ac4"
+    },
+    {
+      "path": "window.svg",
+      "bytes": 385,
+      "sha256": "644768c4aaeb4767bce293344eeb0c125fb804a94d801440424072202d85e3a1"
+    }
+  ]
+}
