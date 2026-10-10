@@ -1,0 +1,23 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "InspectSiteBucket",
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket", "s3:GetBucketLocation"],
+      "Resource": "arn:aws:s3:::tmr-site-764595992126-us-east-1"
+    },
+    {
+      "Sid": "UploadSiteFiles",
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:AbortMultipartUpload"],
+      "Resource": "arn:aws:s3:::tmr-site-764595992126-us-east-1/*"
+    },
+    {
+      "Sid": "InvalidateOnlyThisSite",
+      "Effect": "Allow",
+      "Action": ["cloudfront:CreateInvalidation", "cloudfront:GetInvalidation"],
+      "Resource": "arn:aws:cloudfront::764595992126:distribution/REPLACE_WITH_APPROVED_DISTRIBUTION_ID"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+name: Validate static migration
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: node --test infra/aws/viewer-request.test.mjs
+      - run: node scripts/render-infra.mjs
+      - run: npm run build
+      - run: npx tsc --noEmit
+      - run: python3 scripts/verify-export.py
+      - run: node scripts/verify-http.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: static-export-${{ github.sha }}
+          path: |
+            out/
+            build/site.cloudformation.json
+          include-hidden-files: true
+          retention-days: 14

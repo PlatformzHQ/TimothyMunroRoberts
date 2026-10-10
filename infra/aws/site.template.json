@@ -1,0 +1,92 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "DRAFT: timothymunroroberts.com static hosting. Render before use. No DNS or IAM resources.",
+  "Parameters": {
+    "EnableCustomDomain": {"Type": "String", "Default": "false", "AllowedValues": ["false", "true"]},
+    "AcmCertificateArn": {"Type": "String", "Default": "", "AllowedPattern": "^$|^arn:aws:acm:us-east-1:764595992126:certificate/[a-f0-9-]+$"}
+  },
+  "Rules": {
+    "CertificateRequired": {
+      "RuleCondition": {"Fn::Equals": [{"Ref": "EnableCustomDomain"}, "true"]},
+      "Assertions": [{"Assert": {"Fn::Not": [{"Fn::Equals": [{"Ref": "AcmCertificateArn"}, ""]}]}, "AssertDescription": "Custom aliases require an issued certificate for apex and www in us-east-1, account 764595992126."}]
+    }
+  },
+  "Conditions": {"CustomDomain": {"Fn::Equals": [{"Ref": "EnableCustomDomain"}, "true"]}},
+  "Resources": {
+    "SiteBucket": {
+      "Type": "AWS::S3::Bucket",
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain",
+      "Properties": {
+        "BucketName": {"Fn::Sub": "tmr-site-${AWS::AccountId}-${AWS::Region}"},
+        "PublicAccessBlockConfiguration": {"BlockPublicAcls": true, "BlockPublicPolicy": true, "IgnorePublicAcls": true, "RestrictPublicBuckets": true},
+        "OwnershipControls": {"Rules": [{"ObjectOwnership": "BucketOwnerEnforced"}]},
+        "BucketEncryption": {"ServerSideEncryptionConfiguration": [{"ServerSideEncryptionByDefault": {"SSEAlgorithm": "AES256"}}]},
+        "VersioningConfiguration": {"Status": "Enabled"},
+        "LifecycleConfiguration": {"Rules": [{"Id": "BoundOldVersionStorage", "Status": "Enabled", "NoncurrentVersionExpiration": {"NoncurrentDays": 30}, "AbortIncompleteMultipartUpload": {"DaysAfterInitiation": 7}}]},
+        "Tags": [{"Key": "Site", "Value": "timothymunroroberts.com"}, {"Key": "Owner", "Value": "Platformz"}]
+      }
+    },
+    "OriginAccess": {
+      "Type": "AWS::CloudFront::OriginAccessControl",
+      "Properties": {"OriginAccessControlConfig": {"Name": {"Fn::Sub": "${AWS::StackName}-oac"}, "OriginAccessControlOriginType": "s3", "SigningBehavior": "always", "SigningProtocol": "sigv4"}}
+    },
+    "ViewerRequest": {
+      "Type": "AWS::CloudFront::Function",
+      "Properties": {
+        "Name": {"Fn::Sub": "${AWS::StackName}-routing"},
+        "AutoPublish": true,
+        "FunctionConfig": {"Comment": "Apex canonical, www redirect, static directory indexes", "Runtime": "cloudfront-js-2.0"},
+        "FunctionCode": "__VIEWER_REQUEST_JS__"
+      }
+    },
+    "SiteCachePolicy": {
+      "Type": "AWS::CloudFront::CachePolicy",
+      "Properties": {"CachePolicyConfig": {
+        "Name": {"Fn::Sub": "${AWS::StackName}-cache"}, "DefaultTTL": 300, "MinTTL": 0, "MaxTTL": 31536000,
+        "ParametersInCacheKeyAndForwardedToOrigin": {
+          "EnableAcceptEncodingGzip": true, "EnableAcceptEncodingBrotli": true,
+          "CookiesConfig": {"CookieBehavior": "none"}, "HeadersConfig": {"HeaderBehavior": "none"}, "QueryStringsConfig": {"QueryStringBehavior": "none"}
+        }
+      }}
+    },
+    "Distribution": {
+      "Type": "AWS::CloudFront::Distribution",
+      "Properties": {
+        "DistributionConfig": {
+          "Enabled": true, "Comment": "timothymunroroberts.com", "DefaultRootObject": "index.html",
+          "HttpVersion": "http2and3", "IPV6Enabled": true, "PriceClass": "PriceClass_100",
+          "Aliases": {"Fn::If": ["CustomDomain", ["timothymunroroberts.com", "www.timothymunroroberts.com"], {"Ref": "AWS::NoValue"}]},
+          "ViewerCertificate": {"Fn::If": ["CustomDomain", {"AcmCertificateArn": {"Ref": "AcmCertificateArn"}, "SslSupportMethod": "sni-only", "MinimumProtocolVersion": "TLSv1.2_2021"}, {"CloudFrontDefaultCertificate": true}]},
+          "Origins": [{"Id": "private-s3", "DomainName": {"Fn::GetAtt": ["SiteBucket", "RegionalDomainName"]}, "OriginAccessControlId": {"Ref": "OriginAccess"}, "S3OriginConfig": {"OriginAccessIdentity": ""}}],
+          "DefaultCacheBehavior": {
+            "TargetOriginId": "private-s3", "ViewerProtocolPolicy": "redirect-to-https", "AllowedMethods": ["GET", "HEAD"], "CachedMethods": ["GET", "HEAD"], "Compress": true,
+            "CachePolicyId": {"Ref": "SiteCachePolicy"},
+            "FunctionAssociations": [{"EventType": "viewer-request", "FunctionARN": {"Fn::GetAtt": ["ViewerRequest", "FunctionMetadata.FunctionARN"]}}]
+          },
+          "CustomErrorResponses": [
+            {"ErrorCode": 403, "ResponseCode": 404, "ResponsePagePath": "/404.html", "ErrorCachingMinTTL": 0},
+            {"ErrorCode": 404, "ResponseCode": 404, "ResponsePagePath": "/404.html", "ErrorCachingMinTTL": 0}
+          ]
+        },
+        "Tags": [{"Key": "Site", "Value": "timothymunroroberts.com"}, {"Key": "Owner", "Value": "Platformz"}]
+      }
+    },
+    "BucketPolicy": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {"Ref": "SiteBucket"},
+        "PolicyDocument": {"Version": "2012-10-17", "Statement": [
+          {"Sid": "ReadOnlyFromThisDistribution", "Effect": "Allow", "Principal": {"Service": "cloudfront.amazonaws.com"}, "Action": "s3:GetObject", "Resource": {"Fn::Sub": "${SiteBucket.Arn}/*"}, "Condition": {"StringEquals": {"AWS:SourceArn": {"Fn::Sub": "arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${Distribution}"}}}},
+          {"Sid": "RequireTLS", "Effect": "Deny", "Principal": "*", "Action": "s3:*", "Resource": [{"Fn::GetAtt": ["SiteBucket", "Arn"]}, {"Fn::Sub": "${SiteBucket.Arn}/*"}], "Condition": {"Bool": {"aws:SecureTransport": "false"}}}
+        ]}
+      }
+    }
+  },
+  "Outputs": {
+    "BucketName": {"Value": {"Ref": "SiteBucket"}},
+    "DistributionId": {"Value": {"Ref": "Distribution"}},
+    "PreviewURL": {"Value": {"Fn::Sub": "https://${Distribution.DomainName}"}},
+    "CloudFrontDomain": {"Value": {"Fn::GetAtt": ["Distribution", "DomainName"]}}
+  }
+}

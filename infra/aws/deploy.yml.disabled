@@ -1,0 +1,61 @@
+# DRAFT ONLY. This file is outside .github/workflows and cannot run.
+# Enabling it, creating an AWS role/OIDC trust, and approving uploads are separate actions.
+name: Deploy approved static artifact
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: timothymunroroberts-production
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: ${{ false }} # Remove only in the separately approved activation change.
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: timothymunroroberts-production # Must require an approved reviewer.
+    env:
+      AWS_REGION: us-east-1
+      SITE_BUCKET: tmr-site-764595992126-us-east-1
+      DISTRIBUTION_ID: ${{ vars.TMR_DISTRIBUTION_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint && node --test infra/aws/viewer-request.test.mjs
+      - run: npm run build
+      - run: python3 scripts/verify-export.py && node scripts/verify-http.mjs
+      # Pin third-party actions to reviewed commit SHAs before activation.
+      # This role does not exist as part of this preparation.
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.TMR_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+          allowed-account-ids: '764595992126'
+          role-duration-seconds: 900
+      - name: Confirm account and target
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(aws sts get-caller-identity --query Account --output text)" = '764595992126'
+          test -n "$DISTRIBUTION_ID"
+          test "$SITE_BUCKET" = 'tmr-site-764595992126-us-east-1'
+      - name: Publish assets before HTML
+        shell: bash
+        run: |
+          set -euo pipefail
+          aws s3 cp out/_next/static/ "s3://$SITE_BUCKET/_next/static/" --recursive --cache-control 'public,max-age=31536000,immutable' --only-show-errors
+          aws s3 cp out/ "s3://$SITE_BUCKET/" --recursive --exclude '_next/static/*' --exclude '*.html' --cache-control 'public,max-age=300' --only-show-errors
+          aws s3 cp out/ "s3://$SITE_BUCKET/" --recursive --exclude '*' --include '*.html' --cache-control 'public,max-age=0,must-revalidate' --content-type 'text/html; charset=utf-8' --only-show-errors
+          invalidation_id=$(aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths '/*' --query Invalidation.Id --output text)
+          aws cloudfront wait invalidation-completed --distribution-id "$DISTRIBUTION_ID" --id "$invalidation_id"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: deployed-static-${{ github.sha }}
+          path: out/
+          include-hidden-files: true
+          retention-days: 90
