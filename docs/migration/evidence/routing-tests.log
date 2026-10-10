@@ -1,0 +1,16 @@
+✔ root and deep directory routes use their own index (0.753622ms)
+✔ slash redirects preserve encoded and repeated query values (0.925136ms)
+✔ www redirects to a fixed HTTPS apex without losing path or query (0.141198ms)
+✔ the preview hostname stays usable (0.095291ms)
+✔ assets, metadata and Next navigation payloads are not rewritten (0.297188ms)
+✔ missing paths never fall back to the home page (0.137013ms)
+✔ a double leading slash cannot become an external redirect (0.169781ms)
+✔ distribution errors are genuine 404 responses and S3 is private (0.485657ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 61.922577

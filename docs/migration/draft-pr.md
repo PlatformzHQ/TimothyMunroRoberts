@@ -1,0 +1,9 @@
+This imports timothymunroroberts.com into PlatformzHQ and prepares private S3/CloudFront hosting for AWS account 764595992126. The import retains both Git histories, the destination README, and the original application, public assets and lockfile. Source master and the latest successful GitHub Pages deployment still resolve to d97c981c6e504caff7feb2a761c473db088372c9.
+
+The branch adds CloudFormation drafts for private S3/OAC, CloudFront and ACM; directory routing and www redirects; genuine missing-path 404 responses; a build-only validation workflow; and an inactive AWS deployment example. The complete export exposed three verifier issues, now fixed: bare-origin URLs, quoted SVG data URIs and the HTTP Host header in the www test. HTTP checks now compare every exported file with its served bytes.
+
+Validation on Node 24.19.0 passed: locked install, ESLint, full Next.js 16.2.9 build, TypeScript, eight routing/configuration tests, 329 local reference checks and 188 local HTTP checks. The export contains 12 content routes and 160 files totaling 4,013,778 bytes. CloudFormation validation has zero errors and one documented conditional-certificate warning. The approved Google Fonts and GitHub API access works. See docs/migration/validation.md and its evidence files.
+
+Rendered desktop/mobile QA remains blocked because the supported Browser execution tool is unavailable. No screenshots, browser interaction tests or visual-equivalence claim are included. Real AWS preview checks also remain pending. No form lead was sent; Formsubmit.co and YouTube privacy embeds are preserved.
+
+Keep this PR in draft. The live GitHub Pages site, DNS, AWS resources and credentials remain unchanged, and deployment stays disabled. AWS reauthentication, account inventory, cost controls for the USD 250 site-only ceiling, rendered QA, approved preview provisioning/access, a complete GoDaddy zone inventory and explicit DNS cutover confirmation are still required.

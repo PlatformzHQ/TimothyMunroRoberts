@@ -1,0 +1,17 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "DRAFT: request only after approval in account 764595992126, us-east-1. DNS validation is a separate approved action.",
+  "Resources": {
+    "Certificate": {
+      "Type": "AWS::CertificateManager::Certificate",
+      "Properties": {
+        "DomainName": "timothymunroroberts.com",
+        "SubjectAlternativeNames": ["www.timothymunroroberts.com"],
+        "ValidationMethod": "DNS",
+        "CertificateTransparencyLoggingPreference": "ENABLED",
+        "Tags": [{"Key": "Site", "Value": "timothymunroroberts.com"}]
+      }
+    }
+  },
+  "Outputs": {"CertificateArn": {"Value": {"Ref": "Certificate"}}}
+}

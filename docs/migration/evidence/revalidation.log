@@ -1,0 +1,101 @@
+v24.19.0
+11.9.0
+
+> portfolio@0.1.0 lint
+> eslint
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+✔ root and deep directory routes use their own index (1.363276ms)
+✔ slash redirects preserve encoded and repeated query values (1.272646ms)
+✔ www redirects to a fixed HTTPS apex without losing path or query (0.24227ms)
+✔ the preview hostname stays usable (0.125459ms)
+✔ assets, metadata and Next navigation payloads are not rewritten (0.219888ms)
+✔ missing paths never fall back to the home page (0.105004ms)
+✔ a double leading slash cannot become an external redirect (0.183254ms)
+✔ distribution errors are genuine 404 responses and S3 is private (7.532697ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 253.693322
+Rendered build/site.cloudformation.json. No AWS calls were made.
+cfn-lint 1.57.2
+W1030 {'Ref': 'AcmCertificateArn'} is not a 'AWS::ACM::Certificate.Arn' with pattern '^arn:aws[a-zA-Z-]*:acm:[a-z0-9-]+:\\d{12}:certificate/.+$' when 'Ref' is resolved
+build/site.cloudformation.json:198:19
+
+
+> portfolio@0.1.0 build
+> next build
+
+▲ Next.js 16.2.9 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 7.9s
+  Running TypeScript ...
+  Finished TypeScript in 6.2s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/17) ...
+  Generating static pages using 4 workers (4/17) 
+  Generating static pages using 4 workers (8/17) 
+  Generating static pages using 4 workers (12/17) 
+✓ Generating static pages using 4 workers (17/17) in 505ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /icon.svg
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+└ ● /story/[slug]
+  ├ /story/platformz
+  ├ /story/fur4
+  ├ /story/ceosavvy
+  └ [+8 more paths]
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+(node:1503) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/TimothyMunroRoberts/app/content.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/TimothyMunroRoberts/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "routes": [
+    "/",
+    "/story/platformz/",
+    "/story/fur4/",
+    "/story/ceosavvy/",
+    "/story/hashingspace/",
+    "/story/stationdigital/",
+    "/story/savtira/",
+    "/story/gamestreamer/",
+    "/story/phantom/",
+    "/story/phoenix/",
+    "/story/intira/",
+    "/story/savvis/"
+  ],
+  "route_count": 12,
+  "local_references_checked": 329,
+  "export_files": 160,
+  "export_bytes": 4013778,
+  "result": "passed"
+}
+(node:1510) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/TimothyMunroRoberts/app/content.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/TimothyMunroRoberts/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Passed 188 local HTTP checks across 12 content routes and 160 exported files. AWS preview verification is still required.

@@ -1,0 +1,2 @@
+W1030 {'Ref': 'AcmCertificateArn'} is not a 'AWS::ACM::Certificate.Arn' with pattern '^arn:aws[a-zA-Z-]*:acm:[a-z0-9-]+:\\d{12}:certificate/.+$' when 'Ref' is resolved
+build/site.cloudformation.json:198:19

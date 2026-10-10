@@ -1,0 +1,61 @@
+
+> portfolio@0.1.0 build
+> next build
+
+▲ Next.js 16.2.9 (Turbopack)
+
+  Creating an optimized production build ...
+Turbopack build encountered 2 warnings:
+[next]/internal/font/google/inter_fe8b9d92.module.css
+Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_fe8b9d92.module.css
+    [next]/internal/font/google/inter_fe8b9d92.js
+    ./app/layout.tsx
+
+
+[next]/internal/font/google/space_grotesk_d7b50fc5.module.css
+Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/space_grotesk_d7b50fc5.module.css
+    [next]/internal/font/google/space_grotesk_d7b50fc5.js
+    ./app/layout.tsx
+
+
+
+> Build error occurred
+Error: Turbopack build failed with 2 errors:
+[next]/internal/font/google/inter_fe8b9d92.module.css
+next/font: error:
+Failed to fetch `Inter` from Google Fonts.
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_fe8b9d92.module.css
+    [next]/internal/font/google/inter_fe8b9d92.js
+    ./app/layout.tsx
+
+
+[next]/internal/font/google/space_grotesk_d7b50fc5.module.css
+next/font: error:
+Failed to fetch `Space Grotesk` from Google Fonts.
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/space_grotesk_d7b50fc5.module.css
+    [next]/internal/font/google/space_grotesk_d7b50fc5.js
+    ./app/layout.tsx
+
+
+    at ignore-listed frames
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
