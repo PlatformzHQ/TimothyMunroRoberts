@@ -1,0 +1,501 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   DESIGN TOKENS — customize the palette here.
+   Themes: dark (default) · light (toggle in navbar) · crt (Konami code 🕹)
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  --bg: #0b1026;
+  --bg-elevated: #11173a;
+  --text: #e6e9f5;
+  --muted: #8b93b0;
+  --violet: #7c3aed;
+  --cyan: #22d3ee;
+  --magenta: #f472b6;
+  --amber: #fbbf24;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glow: rgba(124, 58, 237, 0.35);
+  --grain-opacity: 0.05;
+}
+
+[data-theme="light"] {
+  --bg: #f2f4ff;
+  --bg-elevated: #ffffff;
+  --text: #161a33;
+  --muted: #5a6184;
+  --violet: #6d28d9;
+  --cyan: #0891b2;
+  --magenta: #db2777;
+  --amber: #d97706;
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(22, 26, 51, 0.1);
+  --glow: rgba(109, 40, 217, 0.18);
+  --grain-opacity: 0.03;
+}
+
+/* Retro CRT theme — unlocked with the Konami code */
+[data-theme="crt"] {
+  --bg: #020a02;
+  --bg-elevated: #041504;
+  --text: #33ff66;
+  --muted: #1f9943;
+  --violet: #33ff66;
+  --cyan: #66ffcc;
+  --magenta: #99ff66;
+  --amber: #ccff33;
+  --glass: rgba(51, 255, 102, 0.05);
+  --glass-border: rgba(51, 255, 102, 0.25);
+  --glow: rgba(51, 255, 102, 0.3);
+  --grain-opacity: 0.12;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-violet: var(--violet);
+  --color-cyan: var(--cyan);
+  --color-magenta: var(--magenta);
+  --color-amber: var(--amber);
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-space-grotesk), var(--font-inter), sans-serif;
+}
+
+::selection {
+  background: var(--violet);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================================================================
+   BACKGROUND LAYERS — breathing aurora mesh + film grain
+   ========================================================================== */
+
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(45% 35% at 18% 22%, color-mix(in srgb, var(--violet) 26%, transparent), transparent 70%),
+    radial-gradient(40% 35% at 82% 18%, color-mix(in srgb, var(--cyan) 18%, transparent), transparent 70%),
+    radial-gradient(45% 40% at 75% 80%, color-mix(in srgb, var(--magenta) 16%, transparent), transparent 70%),
+    radial-gradient(35% 30% at 25% 85%, color-mix(in srgb, var(--amber) 10%, transparent), transparent 70%);
+  animation: aurora-breathe 16s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-breathe {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    transform: scale(1.18) rotate(4deg);
+    filter: hue-rotate(24deg);
+  }
+}
+
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 50;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 8s steps(10) infinite;
+}
+
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-4%, 3%); }
+  40% { transform: translate(3%, -4%); }
+  60% { transform: translate(-2%, -3%); }
+  80% { transform: translate(4%, 2%); }
+}
+
+/* CRT scanlines + flicker, only in crt theme */
+[data-theme="crt"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.22) 0px,
+    rgba(0, 0, 0, 0.22) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: crt-flicker 0.12s infinite;
+}
+
+[data-theme="crt"] * {
+  text-shadow: 0 0 6px color-mix(in srgb, var(--text) 60%, transparent);
+}
+
+@keyframes crt-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.94; }
+}
+
+/* ============================================================================
+   GLASS & GLOW UTILITIES
+   ========================================================================== */
+
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    var(--violet),
+    var(--cyan),
+    var(--magenta),
+    var(--amber),
+    var(--violet)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.glow-border:hover::before,
+.glow-border:focus-within::before {
+  opacity: 1;
+  animation: border-spin 3s linear infinite;
+}
+
+@keyframes border-spin {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+.text-aurora {
+  background: linear-gradient(100deg, var(--violet), var(--cyan), var(--magenta), var(--amber), var(--violet));
+  background-size: 300% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: aurora-text 7s linear infinite;
+}
+
+@keyframes aurora-text {
+  to {
+    background-position: 300% center;
+  }
+}
+
+/* ============================================================================
+   MOTION PRIMITIVES
+   ========================================================================== */
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(36px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(3deg); }
+}
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.6) translateY(12px); }
+  70% { transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes wave-drift {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes rocket-launch {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-110vh) rotate(-4deg); opacity: 0; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.1); opacity: 0; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.animate-fade-up { animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-pop-in { animation: pop-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+.cursor-blink { animation: blink 1s step-end infinite; }
+
+/* Scroll reveal — toggled by the Reveal component */
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal-left { opacity: 0; transform: translateX(-44px); transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal-right { opacity: 0; transform: translateX(44px); transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal-scale { opacity: 0; transform: scale(0.88); transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal-visible { opacity: 1; transform: none; }
+
+/* Kinetic headline letters */
+.kinetic-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.6em) rotate(6deg) scale(0.8);
+  animation: letter-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* background-clip:text doesn't paint through transformed children,
+   so inside .text-aurora each letter carries its own gradient. */
+.text-aurora .kinetic-letter {
+  background: linear-gradient(100deg, var(--violet), var(--cyan), var(--magenta), var(--amber), var(--violet));
+  background-size: 300% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: letter-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both, aurora-text 7s linear infinite;
+}
+
+@keyframes letter-in {
+  to { opacity: 1; transform: none; }
+}
+
+/* 3D tilt cards (driven by JS setting --tilt-x / --tilt-y) */
+.tilt-card {
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateZ(0);
+  transition: transform 0.18s ease-out, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.tilt-card:hover {
+  box-shadow: 0 24px 60px -18px var(--glow);
+}
+
+/* Custom cursor orb — hidden on touch / reduced motion */
+.cursor-orb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, color-mix(in srgb, var(--cyan) 80%, white), transparent 70%);
+  box-shadow: 0 0 24px 4px color-mix(in srgb, var(--cyan) 50%, transparent);
+  mix-blend-mode: screen;
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.3s ease;
+}
+
+.cursor-orb.is-hovering {
+  width: 52px;
+  height: 52px;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-orb { display: none; }
+}
+
+/* ============================================================================
+   PORTRAIT — grayscale base re-tinted with the aurora palette (duotone),
+   wrapped in a slowly rotating gradient ring.
+   ========================================================================== */
+
+.portrait-frame {
+  position: relative;
+  border-radius: 2rem;
+  padding: 3px;
+  background: conic-gradient(
+    from var(--ring-angle, 0deg),
+    var(--violet),
+    var(--cyan),
+    var(--magenta),
+    var(--amber),
+    var(--violet)
+  );
+  animation: ring-spin 8s linear infinite;
+  box-shadow: 0 24px 70px -20px var(--glow);
+}
+
+@property --ring-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes ring-spin {
+  to {
+    --ring-angle: 360deg;
+  }
+}
+
+.portrait-duotone {
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(2rem - 3px);
+  background: var(--bg-elevated);
+  isolation: isolate; /* keep the blend modes scoped to the photo */
+}
+
+/* the aurora duotone is baked into the image itself (CSS non-separable
+   blend modes render inconsistently across compositors) */
+.portrait-duotone img {
+  display: block;
+}
+
+/* soft glow lift in the highlights */
+.portrait-duotone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(80% 60% at 50% 20%, rgba(255, 255, 255, 0.14), transparent 70%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-frame {
+    animation: none;
+  }
+}
+
+/* Mobile nav dropdown — solid panel so page content never bleeds through */
+.menu-panel {
+  background: color-mix(in srgb, var(--bg) 96%, white 4%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* "Hot" animated gradient — for the headline header buttons */
+.hot-gradient {
+  background-image: linear-gradient(90deg, #fb7185, #f59e0b, #f472b6, #f43f5e, #fb7185);
+  background-size: 220% auto;
+  animation: hot-pan 3s linear infinite;
+  box-shadow: 0 0 18px -4px rgba(244, 63, 94, 0.6);
+}
+
+@keyframes hot-pan {
+  to {
+    background-position: -220% center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hot-gradient {
+    animation: none;
+  }
+}
+
+/* Floating 3D tree labels fade/pop in */
+.tree-label {
+  animation: pop-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tree-label {
+    animation: none;
+  }
+}
+
+/* HUD XP bar */
+.xp-fill {
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  background: linear-gradient(90deg, var(--violet), var(--cyan));
+}
+
+/* Hide scrollbar for horizontal scrollers but keep scrollability */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ============================================================================
+   REDUCED MOTION — swap everything for elegant fades
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.2s !important;
+  }
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+  .kinetic-letter { opacity: 1; transform: none; animation: none; }
+  .cursor-orb { display: none; }
+  .aurora-bg { animation: none; }
+  .grain::before { animation: none; }
+}
